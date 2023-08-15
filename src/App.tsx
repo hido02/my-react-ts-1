@@ -1,23 +1,33 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Todo from './pages/Todo';
+import UserList from './pages/UserList';
+import Counter from './pages/Counter';
+import TodoList from './pages/TodoList';
+import Gallery from './pages/Gallery';
+import './Gallery.css';
+import TodoApp from './pages/TodoApp';
+import UserListAPI from './services/UserListAPI';
+import LoginForm from './pages/LoginForm';
+import Timer from './pages/Timer';
+import TodoForm from './components/TodoForm';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Todo />
+        <UserList/>
+        <Counter />
+        <TodoList />
+        <Gallery />
+        <TodoApp />
+        <UserListAPI />
+        <LoginForm />
+        <Timer />
+        <Counter/>
+        <TodoList />
       </header>
     </div>
   );
