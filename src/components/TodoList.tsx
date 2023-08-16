@@ -2,7 +2,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleTodo } from "../actions/TodoAction";
-import { RootState } from "../reducers";
+import { RootState } from "../reducers/rootReducer";
 
 const TodoList: React.FC = () => {
   const dispatch = useDispatch();
