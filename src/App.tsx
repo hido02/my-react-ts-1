@@ -13,6 +13,7 @@ import LoginForm from './pages/LoginForm';
 import Timer from './pages/Timer';
 import TodoForm from './components/TodoForm';
 import TodoList from './features/todos/TodoList';
+import DataFetcher from './components/DataFetcher';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Counter/>
         {/* <TodoList /> */}
         <TodoList />
+        <DataFetcher />
       </header>
     </div>
   );
