@@ -1,24 +1,21 @@
-import React, { useState } from 'react';
+// counter.tsx
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { increment, decrement } from '../features/counter/counterSlice'; // Import the slice actions
+import { RootState } from '../reducers/rootReducer';
 
-const Counter: React.FC = () => {
-  const [count, setCount] = useState<number>(0);
-
-  const increment = () => {
-    setCount(count + 1);
-  };
-
-  const decrement = () => {
-    setCount(count - 1);
-  };
+function Counter() {
+  const counterValue = useSelector((state: RootState) => state.counter.value); // Get counter value from Redux store
+  const dispatch = useDispatch();
 
   return (
     <div>
-      <h1>Counter App</h1>
-      <p>Count: {count}</p>
-      <button onClick={increment}>Increment</button>
-      <button onClick={decrement}>Decrement</button>
+      <h1>Counter</h1>
+      <p>Value: {counterValue}</p>
+      <button onClick={() => dispatch(increment())}>Increment</button>
+      <button onClick={() => dispatch(decrement())}>Decrement</button>
     </div>
   );
-};
+}
 
 export default Counter;

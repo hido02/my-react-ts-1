@@ -1,14 +1,19 @@
+// store.ts
 import { configureStore } from '@reduxjs/toolkit';
-import todoReducer from '../features/todos/todoSlice';
-import counterReducer from '../features/counter/counterSlice';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import rootReducer from '../reducers/rootReducer';
 
-export const store = configureStore({
-  reducer: {
-    counter: counterReducer,
-    todos: todoReducer,
-  },
+const persistConfig = {
+  key: 'root',
+  storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+const store = configureStore({
+  reducer: persistedReducer,
 });
 
-export type RootState = ReturnType<typeof store.getState>
-
-export type AppDispatch = typeof store.dispatch
+export const persistor = persistStore(store);
+export default store;
